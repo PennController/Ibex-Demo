@@ -1,0 +1,25 @@
+.selected {
+    border: solid 2px green;
+}
+
+.PennController {
+  width: 40em;
+  margin: auto;
+  text-align: center;
+}
+
+.PennController img {
+  margin: auto;
+}
+
+.PennController tr {
+  text-align: center;
+}
+
+.clickable {
+  color: blue;
+}
+
+span.clickable:hover {
+  cursor: pointer;
+}
