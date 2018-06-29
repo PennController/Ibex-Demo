@@ -1,36 +1,44 @@
 var shuffleSequence = seq("picture", "sound");
 
+PennController.ResetPrefix(null);
 PennController.AddHost("https://www.w3schools.com/tags/");
-
-var p = PennController.instruction;
 
 var items = [
 
     ["picture", "PennController", PennController(
     
-        p("Please click on the image below")
+        newText("instructions", "Please look at the image below and click on the button")
+            .print()
         ,
-        p("smiley.gif")
-            .click()
+        newImage("smiley", "smiley.gif")
+            .print()
+        ,
+        newButton("validation", "Validate")
+            .print()
+            .wait()
             
     )]
     ,
     ["sound", "PennController", PennController(
     
-        p("Please press any key to start playing the soundfile")
-            .id("msgStart")
+        newText("instructions", "Please press any key to start playing the soundfile")
+            .print()
         ,
-        p.key()
-        ,
-        p("msgStart").remove()
-        ,
-        p("horse.mp3")
+        newKey("anyKey", "")
             .wait()
         ,
-        p("Thank you for listening")
+        getText("instructions")
+            .remove()
         ,
-        p("Click here to finish")
-            .click()
-    
+        newAudio("horse", "horse.mp3")
+            .play()
+            .wait()
+        ,
+        newText("thanks", "Thank you for listening")
+            .print()
+        ,
+        newButton("finish", "Click here to finish")
+            .print()
+            .wait()
     )]
 ];
